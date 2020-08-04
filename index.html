@@ -14,6 +14,7 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+  
   <a href="https://icons8.com/icon/16247/menu"></a>
 
 
@@ -22,9 +23,11 @@
    
    body {
     font-family: 'Poppins', sans-serif;
-    background: #006d6f;
+    background: #8300e5;
     width: 100%;
     height: 100%;
+    /*padding-right: 20px;
+    padding-top: 20px;*/
 }
 
 a,
@@ -39,28 +42,19 @@ a:focus {
     padding: 10px;
     background: #fff;
     border: none;
-    border-top-right-radius: 25px;
-    border-top-left-radius: 25px;
+
     margin-bottom: 40px;
     box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
+    top:0;
+    position: sticky;
+    z-index:100;
+
 }
 .navbar-text{
   font-size: 15px;
 }
 
-/*.navbar-btn {
-    box-shadow: none;
-    outline: none !important;
-    border: none;
-}*/
 
-/*.line {
-    width: 100%;
-    height: 1px;
-    border-bottom: 1px dashed #ddd;
-    margin: 40px 0;
-}
-*/
 /* ---------------------------------------------------
     SIDEBAR STYLE
 ----------------------------------------------------- */
@@ -75,9 +69,15 @@ a:focus {
 #sidebar {
     min-width: 250px;
     max-width: 250px;
-    background:  #006d6f;
+    height: 100%; 
+    background:  #8300e5;
     color:white;
     transition: all 0.3s;
+    /*top:0;
+    left:0;
+    position:fixed;*/
+    z-index: 110;
+    border-top-right-radius: 25px;
 }
 
 #sidebar.active {
@@ -87,7 +87,7 @@ a:focus {
 .sidebar-header {
     margin-top: 30px;
     padding: 20px;
-    background: #006d6f;
+    background: #8300e5;
     margin-bottom: 20px;
     text-align: center;
     font-size: 2.5em;
@@ -136,7 +136,7 @@ a:focus {
 a[data-toggle="collapse"] {
     position: relative;
 }
-
+/*
 .dropdown-toggle::after {
     display: block;
     position: absolute;
@@ -144,7 +144,7 @@ a[data-toggle="collapse"] {
     right: 20px;
     transform: translateY(-50%);
     z-index: 100;
-}
+}*/
 
 /* ---------------------------------------------------
     CONTENT STYLE
@@ -152,15 +152,14 @@ a[data-toggle="collapse"] {
 
 #content {
     width: 100%;
-    margin-top: 20px;
-    margin-right:20px;
-    min-height: 100vh;
+    min-height: 150vh;
     transition: all 0.3s;
     background-color: white;
-    border-radius: 25px;
+  /*  border-radius: 25px;*/
+    z-index:80;
 }
 
-#content ul li a{
+.navbar ul li a{
     padding: 10px;
     font-size: 1.6em;
     display: block;
@@ -168,44 +167,73 @@ a[data-toggle="collapse"] {
     font-weight: 600;
 }
 
-#content ul li.active>a, a[aria-expanded="true"] {
+.navbar ul li.active>a, a[aria-expanded="true"] {
     color: black;
-    border-bottom: 2px solid #006d6f;
+    border-bottom: 2px solid #8300e5;
 }
 
-#content ul li a:hover {
+.navbar ul li a:hover {
     color: black;
-    border-bottom: 2px solid #006d6f;
+    border-bottom: 2px solid #8300e5;
     
 }
-
-
-.header{
-  font-size: 25px;
-  font-family: "Raleway" , sans-serif;
-  font-weight: 500;
-  margin-left:30px;
+.influencer{
+	padding: 0 30px;
 }
 
-.card{
+.box{
   align-items: center;
-  background-color:#fafafa;
-  width:200px;
+  background-color:white;
+  color: #000;
+  width: 450px;
+  margin: 25px auto; 
+  border: 1px solid #333;
+  box-sizing: border-box;
+  border-radius: 10px;
+  padding: 15px;
+  box-shadow: 10px 10px 0 5px #f3f3f3;
+  cursor: pointer;
+  height: 100%;
+}
+/*.card > span{
+  font-size: 50px;
+}*/
+#buttons .btn{
+  align-items: center;
+  background-color:#8300e5;
+  color: white;
+  margin: 20px auto; 
+  border:none !important;
+  border-radius: 30px;
+  padding: 15px;
+  cursor: pointer;
+  font-size: 18px;
+  width: 200px;
 }
 
-.deck{
-  margin-top: 25px;
-  display: flex;
-  flex-wrap:wrap;
-  padding-right: 30px;
+.text1 > h3{
+  text-align: center;
+  font-size:2.5rem;
+  padding-top: 15px;
+  font-weight: 600;
+  font-family: "Poppins",sans-serif;
 }
-
-
-
-
+.text{
+  text-align: center;
+  font-size:1.8rem;
+  font-weight: 300;
+}
 /* ---------------------------------------------------
     MEDIAQUERIES
 ----------------------------------------------------- */
+@media (max-width: 1200px){
+	.box{
+		height: 45vh;
+
+	}
+}
+
+
 
 @media (max-width: 768px) {
     #sidebar {
@@ -217,16 +245,25 @@ a[data-toggle="collapse"] {
     #sidebarCollapse span {
         display: none;
     }
+    .box{
+      width:250px;
+    }
 
 }
 
 @media (max-width: 526px){
-.card{
+/*.card{
   max-width:180px; 
-}
+}*/
 #content{
-  margin-right:0;
-}
+  margin-right:0;}
+
+  .box{
+      width:170px;
+      text-align: center;
+      padding:5px;
+    }
+
 }
 </style>
 
@@ -278,13 +315,14 @@ a[data-toggle="collapse"] {
         </nav>
 
         <!-- Page Content  -->
-        <div id="content">
+        <div id="content" class="container-fluid pr-0 pl-0">
 
-            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <nav class="navbar navbar-expand-lg navbar-light bg-light pb-0 pt-0">
                 <div class="container-fluid">
 
                     <button type="button" id="sidebarCollapse" class="btn btn-light text-sidebar ">
-                        <!-- <i class="fas fa-align-left"></i> --><img src="https://img.icons8.com/windows/22/000000/menu.png"/> <!-- <span class="navbar-toggler-icon"></span> -->
+                        <!-- <i class="fas fa-align-left"></i> --><img src="https://img.icons8.com/windows/22/000000/menu.png"/>
+                        <span></span> <!-- <span class="navbar-toggler-icon"></span> -->
                         
                     </button>
                     <button class="btn btn-light d-inline-block d-lg-none ml-auto" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -306,55 +344,57 @@ a[data-toggle="collapse"] {
                 </div>
             </nav>
 
-            <h3 class="header">Join Influencers</h3>
-
-                
-                <div class="row ml-4" style="z-index: 95">    
-                  <div class="col-auto mb-3 deck">
-                        <div class="card">
-                           <img class="card-img-top" src="https://pbs.twimg.com/profile_images/948427178357571585/IYbkflYo.jpg" alt="Card image" style="width:100%;">
-                           <div class="card-body">
-                            <h4 class="card-title">Akriti Rana Gill</h4>
-                           </div>
-                        </div>
-                  </div>
-
-                 <div class="col-auto mb-3 deck">
-                        <div class="card" >
-                           <img class="card-img-top" src="https://pbs.twimg.com/profile_images/948427178357571585/IYbkflYo.jpg" alt="Card image" style="width:100%;">
-                           <div class="card-body">
-                            <h4 class="card-title">Akriti Rana Gill</h4>
-                           </div>
-                        </div>
-                  </div>
-                  <div class="col-auto mb- deck">
-                        <div class="card" >
-                           <img class="card-img-top" src="https://pbs.twimg.com/profile_images/948427178357571585/IYbkflYo.jpg" alt="Card image" style="width:100%;">
-                           <div class="card-body">
-                            <h4 class="card-title">Akriti Rana Gill</h4>
-                           </div>
-                        </div>
-                  </div>
-                  <div class="col-auto mb-3 deck">
-                        <div class="card" >
-                           <img class="card-img-top" src="https://pbs.twimg.com/profile_images/948427178357571585/IYbkflYo.jpg" alt="Card image" style="width:100%;">
-                           <div class="card-body">
-                            <h4 class="card-title">Akriti Rana Gill</h4>
-                           </div>
-                        </div>
-                  </div>
-                  <div class="col-auto mb-3 deck">
-                        <div class="card" >
-                           <img class="card-img-top" src="https://pbs.twimg.com/profile_images/948427178357571585/IYbkflYo.jpg" alt="Card image" style="width:100%;">
-                           <div class="card-body">
-                            <h4 class="card-title">Akriti Rana Gill</h4>
-                           </div>
-                        </div>
-                  </div>
+            
+                <div class="container-fluid influencer">
+                <div class="row ">    
+              
+                   <div class="box">
+                      <div class="col-lg-6">
+                           <img class="img-responsive center-block" src="https://img.icons8.com/color/150/000000/circled-user-male-skin-type-1-2.png"/>
+                      </div>
+                      <div class="col-lg-6">
+                          <div class="text1"><h3>Your Campaign<h3></div>
+                           <div class="text">Active :<span>10</span></div>
+                            <div class="text">Closed :<span>5</span></div>
+                       </div>
+                   </div>
+          
+                   <div class="box">
+                      <div class="col-lg-6">
+                           <img class="img-responsive center-block" src="https://img.icons8.com/color/150/000000/joyent--v1.png"/>
+                      </div>
+                      <div class="col-lg-6">
+                          <div class="text1" style="padding-top:30px;:"><h3>Create Campaign<h3></div>
+                          
+                       </div>
+                   </div>   
                 </div>
 
-            </div>
-          </div>
+
+                
+                <div class="row" id="buttons">    
+                
+               <button class="btn btn-primary dropdown-toggle mr-4" type="button" data-toggle="dropdown"
+                         aria-haspopup="true" aria-expanded="false">Basic dropdown</button>
+
+                       <div class="dropdown-menu">
+                          <a class="dropdown-item" href="#">Action</a>
+                          <a class="dropdown-item" href="#">Another action</a>
+                          <a class="dropdown-item" href="#">Something else here</a>
+                          <div class="dropdown-divider"></div>
+                          <a class="dropdown-item" href="#">Separated link</a>
+                       </div>
+<!-- Basic dropdown -->
+
+                <button class="btn"><a href="recruit.html">Recruit</a></button>
+                  
+                </div>
+
+
+    </div>
+  </div>
+</div>
+
 
 
 <!-- jQuery CDN - Slim version (=without AJAX) -->

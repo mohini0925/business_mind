@@ -22,7 +22,7 @@
    
    body {
     font-family: 'Poppins', sans-serif;
-    background: #006d6f;
+    background: #8300e5;
 }
 
 a,
@@ -37,10 +37,13 @@ a:focus {
     padding: 10px;
     background: #fff;
     border: none;
-    border-top-right-radius: 25px;
-    border-top-left-radius: 25px;
+   /* border-top-right-radius: 25px;
+    border-top-left-radius: 25px;*/
     margin-bottom: 40px;
     box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
+    top:0;
+    position: sticky;
+        z-index:100;
 }
 .navbar-text{
   font-size: 15px;
@@ -73,9 +76,10 @@ a:focus {
 #sidebar {
     min-width: 250px;
     max-width: 250px;
-    background:  #006d6f;
+    background: #8300e5;
     color:white;
     transition: all 0.3s;
+      z-index: 110;
 }
 
 #sidebar.active {
@@ -85,7 +89,7 @@ a:focus {
 .sidebar-header {
     margin-top: 30px;
     padding: 20px;
-    background: #006d6f;
+    background: #8300e5;
     margin-bottom: 20px;
     text-align: center;
     font-size: 2.5em;
@@ -150,14 +154,16 @@ a[data-toggle="collapse"] {
 
 #content {
     width: 100%;
-    margin-top: 20px;
-    margin-right:20px;
+    /*margin-top: 20px;
+    margin-right:20px;*/
     min-height: 100vh;
     transition: all 0.3s;
     background-color: white;
-    border-radius: 25px;
+    
 }
-
+.influencer{
+    padding: 0 30px;
+}
 #content ul li a{
     padding: 10px;
     font-size: 1.6em;
@@ -168,12 +174,12 @@ a[data-toggle="collapse"] {
 
 #content ul li.active>a, a[aria-expanded="true"] {
     color: black;
-    border-bottom: 2px solid #006d6f;
+    border-bottom: 2px solid #8300e5;
 }
 
 #content ul li a:hover {
     color: black;
-    border-bottom: 2px solid #006d6f;
+    border-bottom: 2px solid #8300e5;
     
 }
 
@@ -252,9 +258,9 @@ a[data-toggle="collapse"] {
         </nav>
 
         <!-- Page Content  -->
-        <div id="content">
+        <div id="content" class="container-fluid pr-0 pl-0">
 
-            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <nav class="navbar navbar-expand-lg navbar-light bg-light pb-0 pt-0">
                 <div class="container-fluid">
 
                     <button type="button" id="sidebarCollapse" class="btn btn-light text-sidebar ">

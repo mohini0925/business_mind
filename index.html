@@ -4,6 +4,13 @@
 	<title>Dashboard</title>
 	<meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.15.1/moment.min.js"></script>
+  
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
      <!-- Font Family -->
 	<link href="https://fonts.googleapis.com/css2?family=Raleway&display=swap" rel="stylesheet">
@@ -11,12 +18,23 @@
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
 
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
   
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/js/bootstrap-datepicker.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/css/bootstrap-datepicker3.css"/>
+
   <a href="https://icons8.com/icon/16247/menu"></a>
 
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.9.2/jquery-ui.min.js"></script>
+  
+
+
+
+
+  
+
+<!-- <link rel="stylesheet" href="bootstrap-datetimepicker.min.css">
+
+<script src="bootstrap-datetimepicker.min.js"></script> -->
 
 <style type="text/css">
   @import "https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700";
@@ -26,6 +44,7 @@
     background: #8300e5;
     width: 100%;
     height: 100%;
+    overflow: visible;
     /*padding-right: 20px;
     padding-top: 20px;*/
 }
@@ -61,7 +80,7 @@ a:focus {
 
 
 .wrapper {
-    display: flex;
+  display: flex;
     width: 100%;
     align-items: stretch;
 }
@@ -102,13 +121,13 @@ a:focus {
 
 #sidebar ul li {
   
-   margin-left: 30px;
+   margin-left: 40px;
 
 }
 
 #sidebar ul li a {
-    padding: 20px;
-    font-size: 1.8em;
+    padding: 18px;
+    font-size: 1.6em;
     display: block;
     font-family: "Raleway",sans-serif;
     font-weight: 500;
@@ -118,7 +137,7 @@ a:focus {
     color: black;
     background: white;
     border-top-left-radius: 50px;
-     border-bottom-left-radius: 50px;
+    border-bottom-left-radius: 50px;
 }
 
 #sidebar ul li a i{
@@ -127,24 +146,16 @@ a:focus {
 }
 
 #sidebar ul li.active>a, a[aria-expanded="true"] {
-     color: black;
+    color: black;
     background: white;
     border-top-left-radius: 50px;
-     border-bottom-left-radius: 50px;
+    border-bottom-left-radius: 50px;
 }
 
 a[data-toggle="collapse"] {
     position: relative;
 }
-/*
-.dropdown-toggle::after {
-    display: block;
-    position: absolute;
-    top: 50%;
-    right: 20px;
-    transform: translateY(-50%);
-    z-index: 100;
-}*/
+
 
 /* ---------------------------------------------------
     CONTENT STYLE
@@ -181,6 +192,8 @@ a[data-toggle="collapse"] {
 	padding: 0 30px;
 }
 
+button:focus {outline:0 !important;}
+
 .box{
   align-items: center;
   background-color:white;
@@ -195,12 +208,13 @@ a[data-toggle="collapse"] {
   cursor: pointer;
   height: 100%;
 }
-/*.card > span{
-  font-size: 50px;
-}*/
+
 #buttons .btn{
   align-items: center;
-  background-color:#8300e5;
+   background: #8E2AFF;
+background: -webkit-linear-gradient(left, #8E2AFF, #520988);
+background: -moz-linear-gradient(left, #8E2AFF, #520988);
+background: linear-gradient(to right, #8E2AFF, #520988);
   color: white;
   margin: 20px auto; 
   border:none !important;
@@ -208,8 +222,21 @@ a[data-toggle="collapse"] {
   padding: 15px;
   cursor: pointer;
   font-size: 18px;
-  width: 200px;
+  width: 250px;
 }
+
+.dropdown-menu{
+  width: 230px;
+  justify-content: center;
+
+}
+
+.dropdown-menu a{
+  padding: 10px;
+  font-size: 12px;
+
+}
+
 
 .text1 > h3{
   text-align: center;
@@ -222,6 +249,94 @@ a[data-toggle="collapse"] {
   text-align: center;
   font-size:1.8rem;
   font-weight: 300;
+}
+
+.modal-dialog{
+  margin-top: 25px;
+
+}
+
+.modal-title h3{
+  font-size: 25px;
+}
+
+.modal-content{
+  border-radius: 20px;
+  padding: 30px 60px 30px 60px;
+}
+.close{
+  top: -30px;
+  right: -70px;
+  position: absolute;
+  text-shadow: none;
+  opacity: 1;
+}
+.close span{
+  border-radius: 50px;
+  background-color:  #8300e5;
+  color: white;
+  padding:8px 15px;
+  opacity: 1;
+
+}
+
+.close:not(:disabled):not(.disabled):hover {
+    opacity: 1;
+}
+
+form label{
+  font-size:15px;
+  font-weight: 500;
+  font-family: "Raleway",sans-serif;
+  margin-bottom:10px;
+
+}
+
+.form-control{
+  background-color:/* #F8F1FE;*/#eaebee;
+  height: 35px;
+  font-size: 14px;
+  font-weight: 500;
+
+
+}
+.custom-select{
+  height: 35px;
+  font-size: 14px;
+  font-weight: 500;
+
+}
+
+.form-group{
+  margin-bottom: 20px;
+}
+
+.form-control:focus {
+  border-color: #6265e4 !important;
+  box-shadow: 0 0 5px rgba(98, 101, 228, 1) !important;
+}
+
+.custom-file-input:focus{
+  border-color: #6265e4 !important;
+  box-shadow: 0 0 5px rgba(98, 101, 228, 1) !important;
+}
+
+.custom-select:focus{
+  border-color: #6265e4 !important;
+  box-shadow: 0 0 5px rgba(98, 101, 228, 1) !important;
+}
+
+.modal-footer button{
+  width: 75%;
+  padding:12px 10px; 
+  border-radius: 50px;
+  font-size:18px;
+  font-weight: 400;
+  background: #8E2AFF;
+background: -webkit-linear-gradient(left, #8E2AFF, #520988);
+background: -moz-linear-gradient(left, #8E2AFF, #520988);
+background: linear-gradient(to right, #8E2AFF, #520988);
+
 }
 /* ---------------------------------------------------
     MEDIAQUERIES
@@ -262,16 +377,14 @@ a[data-toggle="collapse"] {
       text-align: center;
       padding:5px;
 }
+#buttons .btn{
+  width: 170px;
+  font-size: 15px;
+}
 
 }
 </style>
 
-
-
-</head>
-<body>
-  <html>
-<!-- https://bootstrapious.com/p/bootstrap-sidebar -->
 <body>
     <div class="wrapper">
         <!-- Sidebar  -->
@@ -288,7 +401,7 @@ a[data-toggle="collapse"] {
                     <a href="campaign.html">Create Campaign</a>
                 </li>
                 <li>
-                    <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Explore</a>
+                    <a href="#pageSubmenu" aria-hidden="true">Explore</a>
                     <!-- <ul class="collapse list-unstyled" id="pageSubmenu">
                         <li>
                             <a href="#">Page 1</a>
@@ -358,7 +471,7 @@ a[data-toggle="collapse"] {
                        </div>
                    </div>
           
-                   <div class="box">
+                   <div class="box" data-toggle="modal" data-target="#myModal">
                       <div class="col-lg-6">
                            <img class="img-responsive center-block" src="https://img.icons8.com/color/150/000000/joyent--v1.png"/>
                       </div>
@@ -366,23 +479,30 @@ a[data-toggle="collapse"] {
                           <div class="text1" style="padding-top:30px;:"><h3>Create Campaign<h3></div>
                           
                        </div>
-                   </div>   
+                   </div> 
+
+                    
                 </div>
 
 
                 
                 <div class="row" id="buttons">    
                 
-               <button class="btn btn-primary dropdown-toggle mr-auto mr-auto" type="button" data-toggle="dropdown"
-                         aria-haspopup="true" aria-expanded="false">Select Campaign</button>
+              <!--  <button class="btn dropdown-toggle mr-auto mr-auto" type="button" data-toggle="dropdown"
+                         aria-haspopup="true" aria-expanded="false">Select Campaign</button> -->
 
-                       <div class="dropdown-menu">
-                          <a class="dropdown-item" href="#">Action</a>
-                          <a class="dropdown-item" href="#">Another action</a>
-                          <a class="dropdown-item" href="#">Something else here</a>
-                          <div class="dropdown-divider"></div>
-                          <a class="dropdown-item" href="#">Separated link</a>
-                       </div>
+       <div class="dropdown mr-auto ml-auto">
+        <button class="btn  dropdown-toggle mr-auto ml-auto"  type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Select Campaign
+        </button>
+        <div class="dropdown-menu"  aria-labelledby="dropdownMenuButton">
+            <a class="dropdown-item" href="#">Action</a>
+            <a class="dropdown-item" href="#">Another action</a>
+            <a class="dropdown-item" href="#">Something else here</a>
+        </div>
+    </div>
+
+                       
 <!-- Basic dropdown -->
 
                 <button class="btn"><a href="recruit.html">Recruit</a></button>
@@ -391,25 +511,172 @@ a[data-toggle="collapse"] {
 
 
     </div>
+   
   </div>
 </div>
 
+<div class="modal fade in" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-md" role="document">
+    <div class="modal-content">
+      <div class="modal-body border-bottom ">
+          <button type="button" data-dismiss="modal" class="close" aria-label="Close">
+          <span aria-hidden="true">×</span>
+          </button>
+        <div class="text-center modal-title">
+          <h3>Create New Campaign<h3>
+        </div>
+      </div>
+      <form>
+        <div class="modal-body">
+          <!--  Campaign Name -->
+          <div class="form-group">
+            <label for="text1">Enter Campaign Name</label>
+            <input type="text" class="form-control" id="text1" placeholder="Title">
+            <!-- <small id="emailHelp" class="form-text text-muted">Your information is safe with us.</small> -->
+          </div>
+          <!-- start and end date -->
+          <div class="row">
+              <div class="col-sm-6"> 
+               <div class="form-group ">
+                  <label class="control-label datepicker" for="datepicker-start">Start Date</label>
+                     <input type="text" class="form-control" id="datepicker-start">
+                </div>
+              </div>
+              <div class="col-sm-6"> 
+                <div class="form-group">
+                  <label class="control-label datepicker" for="datepicker-end">End Date</label>
+                  <input type="text" class="form-control" id="datepicker-end">
+                </div>
+              </div>
+          </div>
 
+      <!--     Platform -->
+
+        <div class="form-group">
+         <label for="custom-select">Platform</label>
+            <select class="custom-select" required>
+               <option value="">Select Pltaform</option>
+               <option value="1">Instagram</option>
+               <option value="2">Facebook</option>
+               <option value="3">Youtube</option>
+               <option value="4">Other</option>
+            </select>
+        </div>
+     
+          <!-- Category -->
+          <div class="form-group">
+            <label for="custom-select">Category</label>
+            <select class="custom-select" required>
+               <option value="">Select Category</option>
+               <option value="1">Education</option>
+               <option value="2">Finance</option>
+               <option value="3">Fitness</option>
+               <option value="4">Blogger</option>
+            </select>
+          </div>
+
+         <!--  Choose file -->
+        <div class="form-group">
+        <label for="custom-file">Upload Images/Documents</label>
+        <div class="custom-file">
+           <input type="file" class="custom-file-input" id="customFile">
+            <label class="custom-file-label" for="customFile">Choose file</label>
+        </div>
+        </div> 
+
+        <!--  Caption -->
+         <div class="form-group">
+            <label for="Textarea1">Specified Caption</label>
+             <textarea class="form-control" id="Textarea1" rows="2"></textarea>
+        </div>
+
+        <!-- Geographic -->
+        <div class="form-group">
+        <div class="row">
+          <div class="col-sm-6">
+            <div class="form-group ">
+               <label for="inputCity">Location</label>
+               <input type="text" class="form-control" id="inputCity">
+            </div>
+          </div>
+
+          <div class="col-sm-4">
+            <div class="form-group ">
+            <label for="inputgender">Gender</label>
+            <select id="inputgender" class="form-control">
+             <option selected>Choose...</option>
+             <option>Male</option>
+             <option>Female</option>
+             <option>Other</option>
+            </select>
+            </div>
+          </div>
+          <div class="col-sm-2">
+            <div class="form-group">
+            <label for="inputage">Age</label>
+              <input type="text" class="form-control" id="inputage">
+          </div>
+          </div>
+        </div>
+        </div>
+
+         <!-- min & max -->
+          <label for="">Followers</label>
+         <div class="d-flex justify-content-center my-4">
+         <span class="font-weight-bold purple-text mr-2 mt-1">0</span>
+           <form class="range-field w-75">
+             <input class="border-0" type="range" min="0" max="100" />
+           </form>
+         <span class="font-weight-bold purple-text ml-2 mt-1">1M</span>
+         </div>
+
+
+        <!--  Budget -->
+          <div class="form-group">
+            <label for="budget">Total Budget</label>
+            <input type="number" class="form-control" id="budget" >
+            <!-- <small id="emailHelp" class="form-text text-muted">Your information is safe with us.</small> -->
+          </div>
+
+
+
+      </div>
+
+        <div class="modal-footer border-top-0 d-flex justify-content-center">
+          <button type="submit" class="btn btn-success">Submit</button>
+        </div>
+
+        </form>
+      </div>
+    </div>
+  </div>
 
 <!-- jQuery CDN - Slim version (=without AJAX) -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+
+    <script src="https://code.jquery.com/jquery.js"></script>
     <!-- Popper.JS -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous"></script>
     <!-- Bootstrap JS -->
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
+
 
     <script type="text/javascript">
         $(document).ready(function () {
             $('#sidebarCollapse').on('click', function () {
                 $('#sidebar').toggleClass('active');
             });
+
+
+             $('#datepicker-start').datepicker({
+                    format: "dd/mm/yyyy"
+                });  
+            
         });
-    </script>
+</script>
+
+
+  
 </body>
 
 </html>

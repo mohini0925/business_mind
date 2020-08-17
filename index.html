@@ -7,6 +7,7 @@
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
+
   <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.15.1/moment.min.js"></script>
   
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
@@ -226,7 +227,7 @@ background: linear-gradient(to right, #8E2AFF, #520988);
 }
 
 .dropdown-menu{
-  width: 230px;
+  width: 150px;
   justify-content: center;
 
 }
@@ -333,10 +334,20 @@ form label{
   font-size:18px;
   font-weight: 400;
   background: #8E2AFF;
+  color: white;
 background: -webkit-linear-gradient(left, #8E2AFF, #520988);
 background: -moz-linear-gradient(left, #8E2AFF, #520988);
 background: linear-gradient(to right, #8E2AFF, #520988);
 
+}
+
+.modal-footer button:active{
+   background: #8E2AFF; 
+   color: white;
+}
+.modal-footer button:hover{
+   background: #8E2AFF; 
+   color: white;
 }
 /* ---------------------------------------------------
     MEDIAQUERIES
@@ -344,7 +355,7 @@ background: linear-gradient(to right, #8E2AFF, #520988);
 @media (max-width: 1200px){
 	.box{
 		height:330px;
-
+    width:230px;
 	}
 }
 
@@ -361,25 +372,84 @@ background: linear-gradient(to right, #8E2AFF, #520988);
         display: none;
     }
     .box{
-      width:250px;
+      width:200px;
     }
 
 }
 
-@media (max-width: 526px){
-/*.card{
-  max-width:180px; 
-}*/
+@media (max-width: 390px){
+  .box{
+      width:120px;
+      text-align: center;
+      padding:2px;
+      height:200px;
+}
+
+.text1 > h3{
+  font-size:1.5rem;
+  padding-top: 15px;
+  font-weight: 600;
+  font-family: "Poppins",sans-serif;
+}
+.text{
+  font-size:1rem;
+  font-weight: 300;
+}
+#buttons .btn{
+  width: 120px;
+  font-size: 10px;
+
+}
+
+.modal-content{
+  border-radius: 20px;
+  padding: 10px 20px 10px 20px;
+}
+
+.close{
+  top: -10px;
+  right: -35px;
+  position: absolute;
+  text-shadow: none;
+  opacity: 1;
+}
+
+}
+
+@media (min-width: 390px ) and (max-width: 526px){
+
 #content{
   margin-right:0;}
 .box{
-      width:170px;
+      width:150px;
       text-align: center;
       padding:5px;
+      height:250px;
 }
+
+.text1 > h3{
+  font-size:1.5rem;
+  padding-top: 15px;
+  font-weight: 600;
+  font-family: "Poppins",sans-serif;
+}
+
 #buttons .btn{
   width: 170px;
   font-size: 15px;
+}
+
+.modal-content{
+  border-radius: 20px;
+  padding: 15px 30px 15px 30px;
+}
+
+.close{
+  top: -15px;
+  right: -45px;
+  position: absolute;
+  text-shadow: none;
+  opacity: 1;
 }
 
 }
@@ -643,7 +713,7 @@ background: linear-gradient(to right, #8E2AFF, #520988);
       </div>
 
         <div class="modal-footer border-top-0 d-flex justify-content-center">
-          <button type="submit" class="btn btn-success">Submit</button>
+          <button type="submit" class="btn">Submit</button>
         </div>
 
         </form>

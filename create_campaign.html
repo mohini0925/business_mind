@@ -1,0 +1,619 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Dashboard</title>
+    <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.15.1/moment.min.js"></script>
+  
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+     <!-- Font Family -->
+    <link href="https://fonts.googleapis.com/css2?family=Raleway&display=swap" rel="stylesheet">
+     <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+  
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/js/bootstrap-datepicker.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/css/bootstrap-datepicker3.css"/>
+
+  <a href="https://icons8.com/icon/16247/menu"></a>
+
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.9.2/jquery-ui.min.js"></script>
+  
+
+
+
+<style type="text/css">
+
+  @import "https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700";
+   
+   body {
+    font-family: 'Poppins', sans-serif;
+    background: #20509e;
+    width: 100%;
+    height: 100%;
+    overflow: visible;
+}
+
+a,
+a:hover,
+a:focus {
+    color: inherit;
+    text-decoration: none;
+    transition: all 0.3s;
+}
+
+.navbar {
+    padding: 8px;
+    background: #fff;
+    border: none;
+    margin-bottom: 30px;
+    box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
+    top:0;
+    position: sticky;
+    z-index:100;
+
+}
+.navbar-text{
+  font-size: 15px;
+}
+
+
+/* ---------------------------------------------------
+    SIDEBAR STYLE
+----------------------------------------------------- */
+.wrapper {
+  display: flex;
+    width: 100%;
+    align-items: stretch;
+}
+
+#sidebar {
+    min-width: 220px;
+    max-width:220px;
+    height: 100%; 
+    background: #20509e; 
+    color:white;
+    transition: all 0.3s;
+    /*top:0;
+    left:0;
+    position:fixed;*/
+    z-index: 110;
+    border-top-right-radius: 25px;
+}
+
+#sidebar.active {
+    margin-left: -220px;
+}
+
+.sidebar-header {
+    margin-top: 30px;
+    padding: 15px;
+    background: #20509e;
+    margin-bottom: 20px;
+    text-align: center;
+    font-size: 2.3em;
+    font-family: "Raleway",sans-serif;
+    font-weight: 600;
+}
+
+#sidebar ul.components {
+    padding: 20px 0;
+    border-bottom: 1px solid white;
+}
+
+#sidebar ul li {
+  
+   margin-left: 40px;
+
+}
+
+#sidebar ul li a {
+    padding: 18px;
+    font-size: 1.5em;
+    display: block;
+    font-family: "Raleway",sans-serif;
+    font-weight: 500;
+}
+
+#sidebar ul li a:hover {
+    color: black;
+    background:#f3f7f9;
+    border-top-left-radius: 50px;
+    border-bottom-left-radius: 50px;
+}
+
+#sidebar ul li a i{
+  padding:0 12px;
+  font-size: 20px;
+}
+
+#sidebar ul li.active>a, a[aria-expanded="true"] {
+    color: black;
+    background: #f3f7f9;
+    border-top-left-radius: 50px;
+    border-bottom-left-radius: 50px;
+}
+
+a[data-toggle="collapse"] {
+    position: relative;
+}
+
+
+/* ---------------------------------------------------
+    CONTENT STYLE
+----------------------------------------------------- */
+
+#content {
+    width: 100%;
+    min-height: 150vh;
+    transition: all 0.3s;
+    background-color: #f3f7f9;
+    z-index:80;
+}
+
+#content ul li a{
+    padding: 10px;
+    font-size: 1.5em;
+    display: block;
+    font-family: "Raleway",sans-serif;
+    font-weight: 600;
+}
+
+#content ul li.active>a, a[aria-expanded="true"] {
+    color: black;
+    border-bottom: 2px solid #20509e;
+}
+
+#content ul li a:hover {
+    color: black;
+    border-bottom: 2px solid #20509e;
+    
+}
+.influencer{
+  padding: 0 30px;
+}
+.page-breadcrumb li {
+  font-size: 1.2rem;
+
+}
+form{
+  padding: 30px;
+}
+
+form label{
+  font-size:15px;
+  font-weight: 500;
+  font-family: "Raleway",sans-serif;
+  margin-bottom:10px;
+
+}
+
+.form-control{
+  background-color:white;
+  height: 35px;
+  font-size: 14px;
+  font-weight: 500;
+
+
+}
+.custom-select{
+  height: 35px;
+  font-size: 14px;
+  font-weight: 500;
+
+}
+
+.form-group{
+  margin-bottom: 20px;
+}
+
+.form-control:focus {
+  border-color: #6265e4 !important;
+  box-shadow: 0 0 5px rgba(98, 101, 228, 1) !important;
+}
+
+.custom-file-input:focus{
+  border-color: #6265e4 !important;
+  box-shadow: 0 0 5px rgba(98, 101, 228, 1) !important;
+}
+
+.custom-select:focus{
+  border-color: #6265e4 !important;
+  box-shadow: 0 0 5px rgba(98, 101, 228, 1) !important;
+}
+
+.promotePtType.feesType>li {
+    border-radius: 3px;
+    display: inline-block;
+    margin-right: 13px;
+    padding: 12px 10px;
+    text-align: center;
+    width: auto;
+    background: white;
+    cursor: pointer;
+    margin-bottom: 10px;
+     box-shadow: 2px 2px 4px rgba(36, 102, 178, 0.1);
+}
+
+.feesType>li {
+    float: left;
+    width: 50%;
+}
+.feesType {
+    list-style: outside none none;
+    margin-top: 5px;
+    padding-left: 0;
+    color: #5b667a;
+    font-family: 700;
+    font-size: 1.2em;
+    font-family: "Raleway",sans-serif;
+}
+
+input[type=checkbox][disabled] {
+    cursor: not-allowed;
+}
+
+.promotePtType.feesType .regular-checkbox+label {
+    margin-right: 6px;
+}
+.feesType .regular-checkbox+label {
+    border-radius: 50%;
+    color: ;
+}
+.regular-checkbox{
+  display: none;
+}
+.regular-checkbox+label, .custom-regular-checkbox+label:before {
+    background: #fff none repeat scroll 0 0;
+    border: 2px solid #c3c3c3;
+    border-radius: initial;
+    display: inline-block;
+    margin-bottom: 0;
+    margin-right: 15px;
+    padding: 10px;
+    position: relative;
+    vertical-align: middle;
+}
+label {
+    display: inline-block;
+    max-width: 100%;
+    margin-bottom: 5px;
+    font-weight: 700;
+}
+
+#btn{
+  width: 300px;
+  padding:12px 10px; 
+  border-radius: 50px;
+  background: linear-gradient(to right, #3e2bce 0%, #2dd3aa 100%, #2dd3aa 100%, #2dd3aa 100%);
+}
+
+#btn button{
+    font-size:18px;
+  font-weight: 400;
+  color: white;
+}
+
+#btn:active{
+   background: #20509e;
+   color: white;
+}
+#btn:hover{
+   background:#20509e;
+   color: white;
+}
+
+@media (max-width: 768px) {
+    #sidebar {
+        margin-left: -220px;
+    }
+    #sidebar.active {
+        margin-left: 0;
+    }
+    #sidebarCollapse span {
+        display: none;
+    }}
+
+</style>
+
+<body>
+    <div class="wrapper">
+        <!-- Sidebar  -->
+        <nav id="sidebar">
+            <div class="sidebar-header">
+                <span>Business Mind</span>
+            </div>
+
+            <ul class="list-unstyled components">        
+                 <li class="active">
+                    <a href="#"><i class="fa fa-home" aria-hidden="true"></i>Home</a>
+                </li>
+                <li>
+                    <a href="campaign.html">Create Campaign</a>
+                </li>
+                <li>
+                    <a href="#pageSubmenu" aria-hidden="true">Explore</a>
+                    <!-- <ul class="collapse list-unstyled" id="pageSubmenu">
+                        <li>
+                            <a href="#">Page 1</a>
+                        </li>
+                        <li>
+                            <a href="#">Page 2</a>
+                        </li>
+                        <li>
+                            <a href="#">Page 3</a>
+                        </li>
+                    </ul> -->
+                </li>
+                <li>
+                    <a href="#"><i class="fa fa-inr" aria-hidden="true"></i>Payment</a>
+                </li>
+                <li>
+                    <a href="#">Requests</a>
+                </li>
+                <li>
+                    <a href="#"><i class="fa fa-user-o" aria-hidden="true"></i></i>Profile</a>
+                </li>
+            </ul>
+        </nav>
+
+        <!-- Page Content  -->
+        <div id="content" class="container-fluid pr-0 pl-0">
+
+            <nav class="navbar navbar-expand-lg navbar-light bg-light pb-0 pt-0">
+                <div class="container-fluid">
+
+                    <button type="button" id="sidebarCollapse" class="btn btn-light text-sidebar ">
+                        <!-- <i class="fas fa-align-left"></i> --><img src="https://img.icons8.com/windows/22/000000/menu.png"/>
+                        <span></span> <!-- <span class="navbar-toggler-icon"></span> -->
+                        
+                    </button>
+                    <button class="btn btn-light d-inline-block d-lg-none ml-auto" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                        <!-- <i class="fas fa-align-justify"></i> --><img src="https://img.icons8.com/windows/22/000000/menu.png"/> <!--  <span class="navbar-toggler-icon"></span> -->
+                    </button>
+
+
+
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <ul class="nav navbar-nav ml-auto">
+                            <li class="nav-item active">
+                                <a class="nav-link" href="newdash.html">For Brand</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="influencer.html">For Influencer</a>
+                            </li>
+                            </ul>
+                    </div>
+                </div>
+            </nav>
+
+        <div class="container-fluid influencer">
+
+           <div  class="row">
+            <div class="col-lg-12 col-md-12 col-sm-12">
+                <div class="page_header">
+                    <h2 class="mb-3">Create Campaign</h2>
+                    <div class="page-breadcrumb">
+                                    <nav aria-label="breadcrumb">
+                                        <ol class="breadcrumb">
+                                            <li class="breadcrumb-item"><a href="index.html" class="breadcrumb-link">Dashboard</a></li>
+                                            <li class="breadcrumb-item active" aria-current="page">Create Campaign</li>
+                                        </ol>
+                                    </nav>
+                    </div>
+                </div>
+
+            </div>
+           </div>
+
+           <div class="row">
+            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                <form>
+          <!--  Campaign Name -->
+                  <div class="form-group">
+          <div class="row">
+            <div class="col-sm-6"> 
+            <div class="form-group">
+               <label for="text1">Enter Campaign Name</label>
+            <input type="text" class="form-control" id="text1" placeholder="Title">
+            </div>    
+          </div> 
+        
+     
+          <!-- Category -->
+          <div class="col-sm-6">
+            <div class="form-group">
+            <label for="custom-select">Category</label>
+            <select class="custom-select" required>
+               <option value="">Select Category</option>
+               <option value="1">Education</option>
+               <option value="2">Finance</option>
+               <option value="3">Fitness</option>
+               <option value="4">Blogger</option>
+            </select>
+            </div>
+            </div> 
+        </div>
+        </div>
+          <!-- start and end date -->
+          <div class="form-group">
+          <div class="row">
+              <div class="col-sm-6"> 
+               <div class="form-group ">
+                  <label class="control-label datepicker" for="datepicker-start">Start Date</label>
+                     <input type="date" class="form-control" id="datepicker-start">
+                </div>
+              </div>
+              <div class="col-sm-6"> 
+                <div class="form-group">
+                  <label class="control-label datepicker" for="datepicker-end">End Date</label>
+                  <input type="date" class="form-control" id="datepicker-end">
+                </div>
+              </div>
+          </div>
+          </div>
+
+      <!--     Platform -->
+
+
+
+        <div class="form-group">
+         <div class="row">
+                <!--  Choose file -->
+          <div class="col-sm-6">
+        <div class="form-group">
+        <label for="custom-file">Upload Images/Documents</label>
+        <div class="custom-file">
+           <input type="file" class="custom-file-input" id="customFile">
+            <label class="custom-file-label" for="customFile">Choose file</label>
+        </div>
+        </div>
+        </div> 
+
+         <div class="col-sm-6">
+            <!-- Product Url -->
+            <div class="form-group">
+            <label for="text5">Product URL</label>
+            <input type="text5" class="form-control" id="text1">
+            <!-- <small id="emailHelp" class="form-text text-muted">Your information is safe with us.</small> -->
+          </div>
+         </div> 
+         </div>
+     </div>
+
+        <!--  Caption -->
+
+         <div class="form-group">
+            <label for="Textarea1">Specified Caption</label>
+             <textarea class="form-control" id="Textarea1" rows="2"></textarea>
+        </div>
+
+
+         <div class="form-group">
+            <label for="Textarea1">Platform</label>
+             <div class="col-xs-12 padding0"> 
+              <ul class="promotePtType feesType eventPromoteType">
+               <li onclick="selectEventPromotePty(this)" class="fb">
+                <input id="eventPromotionType1" disabled="" class="regular-checkbox" name="eventPromotionType" type="checkbox" value="facebook">
+                 <label for="eventPromotionType1"></label>
+                  <span> Facebook</span> </li> 
+              <li onclick="selectEventPromotePty(this)" class="insta">
+                 <input id="eventPromotionType2" disabled="" class="regular-checkbox" name="eventPromotionType" type="checkbox" value="instagram">
+                  <label for="eventPromotionType2"></label>
+                   <span> Instagram</span> </li> 
+              <li onclick="selectEventPromotePty(this)" class="tw"> 
+                <input id="eventPromotionType3" disabled="" class="regular-checkbox" name="eventPromotionType" type="checkbox" value="twitter"> 
+                <label for="eventPromotionType3"></label>
+                 <span> Twitter</span> </li>
+             <li onclick="selectEventPromotePty(this)" class="zomt">
+              <input id="eventPromotionType4" disabled="" class="regular-checkbox" name="eventPromotionType" type="checkbox" value="zomato"> <label for="eventPromotionType4"></label> 
+              <span> Zomato</span> </li> 
+              <li onclick="selectEventPromotePty(this)" class="blog">
+               <input id="eventPromotionType5" disabled="" class="regular-checkbox" name="eventPromotionType" type="checkbox" value="blog"> <label for="eventPromotionType5"></label>
+                <span> Blog</span> </li>
+                 <li onclick="selectEventPromotePty(this)" class="yw"> <input id="eventPromotionType6" disabled="" class="regular-checkbox" name="eventPromotionType" type="checkbox" value="youtube"> <label for="eventPromotionType6"></label> <span> Youtube</span> </li>
+                  </ul> 
+                </div>
+        </div>
+
+
+
+        <!-- Geographic -->
+        <div class="form-group">
+        <div class="row">
+          <div class="col-sm-6">
+            <div class="form-group ">
+               <label for="inputCity">Location</label>
+               <input type="text" class="form-control" id="inputCity">
+            </div>
+          </div>
+
+
+          <div class="col-sm-4">
+            <div class="form-group ">
+            <label for="inputgender">Gender</label>
+            <select id="inputgender" class="form-control">
+             <option selected>Choose...</option>
+             <option>Male</option>
+             <option>Female</option>
+             <option>Other</option>
+            </select>
+            </div>
+          </div>
+          <div class="col-sm-2">
+            <div class="form-group">
+            <label for="inputage">Age</label>
+              <input type="text" class="form-control" id="inputage">
+          </div>
+          </div>
+        </div>
+        </div>
+
+
+        <!--  Budget -->
+          <div class="form-group">
+            <div class="row">
+              <div class="col-sm-6">
+                <div class="form-group">
+                      <label for="budget">Followers</label>
+                      <input type="number" class="form-control" id="budget" >
+               </div>
+              </div>
+
+         <!-- min & max -->
+               <div class="col-sm-6">
+                  <div class="form-group">
+                    <label for="">Budget</label>
+                      <div class="d-flex justify-content-center my-4">
+                      <span class="font-weight-bold purple-text mr-2 mt-1">0</span>
+                      <form class="range-field w-75">
+                      <input class="border-0" type="range" min="0" max="100" />
+                      </form>
+                      <span class="font-weight-bold purple-text ml-2 mt-1">1M</span>
+                      </div>
+                  </div>
+             </div>
+         </div>
+       </div>
+
+
+        <div class="border-top-0 m-auto d-flex justify-content-center" id="btn">
+          <button type="submit" class="btn">Submit</button>
+        </div>
+
+        </form>
+            </div>
+            </div>
+
+</div>
+</div>
+ <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+
+    <script src="https://code.jquery.com/jquery.js"></script>
+    <!-- Popper.JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous"></script>
+    <!-- Bootstrap JS -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
+
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#sidebarCollapse').on('click', function () {
+                $('#sidebar').toggleClass('active');
+            });
+
+        });
+</script>
+
+
+</body>
+
+</head>

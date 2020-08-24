@@ -1,28 +1,47 @@
-<!DOCTYPE html>
+<!DOC<!DOCTYPE html>
 <html>
 <head>
-	<title>Dashboard</title>
-	<meta charset="utf-8">
+    <title>Dashboard</title>
+    <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.15.1/moment.min.js"></script>
+  
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
      <!-- Font Family -->
-	<link href="https://fonts.googleapis.com/css2?family=Raleway&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Raleway&display=swap" rel="stylesheet">
      <!-- Font Awesome Icons -->
-	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
 
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+  
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/js/bootstrap-datepicker.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/css/bootstrap-datepicker3.css"/>
 
   <a href="https://icons8.com/icon/16247/menu"></a>
 
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.9.2/jquery-ui.min.js"></script>
+  
+
+
+
 <style type="text/css">
-   @import "https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700";
+
+  @import "https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700";
    
    body {
     font-family: 'Poppins', sans-serif;
-    background:#8300e5;
+    background: #20509e;
+    width: 100%;
+    height: 100%;
+    overflow: visible;
+    /*padding-right: 20px;
+    padding-top: 20px;*/
 }
 
 a,
@@ -34,66 +53,57 @@ a:focus {
 }
 
 .navbar {
-    padding: 10px;
+    padding: 8px;
     background: #fff;
     border: none;
-    /*border-top-right-radius: 25px;
-    border-top-left-radius: 25px;*/
-    margin-bottom: 40px;
+    margin-bottom: 30px;
     box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
     top:0;
     position: sticky;
-        z-index:100;
+    z-index:100;
+
 }
 .navbar-text{
   font-size: 15px;
 }
 
-/*.navbar-btn {
-    box-shadow: none;
-    outline: none !important;
-    border: none;
-}*/
 
-/*.line {
-    width: 100%;
-    height: 1px;
-    border-bottom: 1px dashed #ddd;
-    margin: 40px 0;
-}
-*/
 /* ---------------------------------------------------
     SIDEBAR STYLE
 ----------------------------------------------------- */
 
 
 .wrapper {
-    display: flex;
+  display: flex;
     width: 100%;
     align-items: stretch;
-
 }
 
 #sidebar {
-    min-width: 250px;
-    max-width: 250px;
-    background:  #8300e5;
+    min-width: 220px;
+    max-width:220px;
+    height: 100%; 
+    background: /* #8300e5*/#20509e; 
     color:white;
     transition: all 0.3s;
-      z-index: 110;
+    /*top:0;
+    left:0;
+    position:fixed;*/
+    z-index: 110;
+    border-top-right-radius: 25px;
 }
 
 #sidebar.active {
-    margin-left: -250px;
+    margin-left: -220px;
 }
 
 .sidebar-header {
     margin-top: 30px;
-    padding: 20px;
-    background: #8300e5;
+    padding: 15px;
+    background: #20509e;
     margin-bottom: 20px;
     text-align: center;
-    font-size: 2.5em;
+    font-size: 2.3em;
     font-family: "Raleway",sans-serif;
     font-weight: 600;
 }
@@ -105,13 +115,13 @@ a:focus {
 
 #sidebar ul li {
   
-   margin-left: 30px;
+   margin-left: 40px;
 
 }
 
 #sidebar ul li a {
-    padding: 20px;
-    font-size: 1.8em;
+    padding: 18px;
+    font-size: 1.5em;
     display: block;
     font-family: "Raleway",sans-serif;
     font-weight: 500;
@@ -119,9 +129,9 @@ a:focus {
 
 #sidebar ul li a:hover {
     color: black;
-    background: white;
+    background: #f3f7f9;
     border-top-left-radius: 50px;
-     border-bottom-left-radius: 50px;
+    border-bottom-left-radius: 50px;
 }
 
 #sidebar ul li a i{
@@ -130,16 +140,15 @@ a:focus {
 }
 
 #sidebar ul li.active>a, a[aria-expanded="true"] {
-     color: black;
-    background: white;
+    color: black;
+    background: #f3f7f9;
     border-top-left-radius: 50px;
-     border-bottom-left-radius: 50px;
+    border-bottom-left-radius: 50px;
 }
 
 a[data-toggle="collapse"] {
     position: relative;
 }
-
 
 
 /* ---------------------------------------------------
@@ -148,17 +157,16 @@ a[data-toggle="collapse"] {
 
 #content {
     width: 100%;
-    /*margin-top: 20px;
-    margin-right:20px;*/
-    min-height: 100vh;
+    min-height: 150vh;
     transition: all 0.3s;
-    background-color: white;
-    
+    background-color: #f3f7f9;
+    z-index:80;
 }
+
 
 #content ul li a{
     padding: 10px;
-    font-size: 1.6em;
+    font-size: 1.5em;
     display: block;
     font-family: "Raleway",sans-serif;
     font-weight: 600;
@@ -166,12 +174,12 @@ a[data-toggle="collapse"] {
 
 #content ul li.active>a, a[aria-expanded="true"] {
     color: black;
-    border-bottom: 2px solid #8300e5;
+    border-bottom: 2px solid  #20509e;
 }
 
 #content ul li a:hover {
     color: black;
-    border-bottom: 2px solid #8300e5;
+    border-bottom: 2px solid  #20509e;
     
 }
 
@@ -193,9 +201,9 @@ a[data-toggle="collapse"] {
 }
 
 .search-btn{
-	padding: 15px 45px;
+padding: 15px 45px;
  border-radius: 8px;
-background-color: #8500e5}
+background: linear-gradient(to right, #3e2bce 0%, #2dd3aa 100%, #2dd3aa 100%, #2dd3aa 100%);}
 
 .influencer{
 	padding: 0px 30px; 
@@ -211,7 +219,7 @@ background-color: #8500e5}
 }
 
 .main-con:hover{
-	box-shadow: 10px 10px 0 5px #f3f3f3;
+	box-shadow: 2px 2px 4px rgba(36, 102, 178, 0.1);
 
 }
 
@@ -274,7 +282,7 @@ background-color: #8500e5}
 
 @media (max-width: 768px) {
     #sidebar {
-        margin-left: -250px;
+        margin-left: -220px;
     }
     #sidebar.active {
         margin-left: 0;
